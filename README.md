@@ -135,4 +135,4 @@ This project is licensed under the MIT License.
 
 - [python-chess](https://python-chess.readthedocs.io/en/latest/)
 - [Stockfish](https://stockfishchess.org/)
-- Kaggle's FIDE & Google Efficient Chess AI Challenge
+- [Kaggle's FIDE & Google Efficient Chess AI Challenge](https://www.kaggle.com/competitions/fide-google-efficiency-chess-ai-challenge)
