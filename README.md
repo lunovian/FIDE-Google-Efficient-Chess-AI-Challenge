@@ -95,15 +95,20 @@ Welcome to the Chess Bot Project! This project aims to develop a competitive che
 ## Setup Instructions
 
 1. Clone this repository:
+
    ```bash
    git clone https://github.com/yourusername/chess-bot.git
    cd chess-bot
    ```
+
 2. Install dependencies:
+
    ```bash
    pip install -r requirements.txt
    ```
+
 3. Run the basic bot:
+
    ```bash
    python main.py
    ```
