@@ -2,8 +2,6 @@
 
 Welcome to the Chess Bot Project! This project aims to develop a competitive chess bot, evolving through various stages of complexity. The bot will leverage game rules, heuristic evaluation, and advanced algorithms to play chess intelligently.
 
----
-
 ## Features
 
 - **Legal Moves Generation**: Ensures all moves follow chess rules.
@@ -12,13 +10,10 @@ Welcome to the Chess Bot Project! This project aims to develop a competitive che
 - **Custom Heuristics**: Evaluates moves based on material, positional advantage, and king safety.
 - **Machine Learning Integration**: Uses reinforcement learning and neural networks for advanced decision-making.
 
----
-
 ## Roadmap
 
 ![Check out issues page for more information about Roadmap](https://github.com/lunovian/FIDE-Google-Efficient-Chess-AI-Challenge/issues)
 
----
 
 ## Setup Instructions
 
@@ -41,7 +36,6 @@ Welcome to the Chess Bot Project! This project aims to develop a competitive che
    python main.py
    ```
 
----
 
 ## Contributing
 
@@ -56,13 +50,11 @@ Welcome to the Chess Bot Project! This project aims to develop a competitive che
    ```
 4. Push the changes and open a pull request.
 
----
 
 ## License
 
 This project is licensed under the MIT License.
 
----
 
 ## Acknowledgments
 
