@@ -16,68 +16,68 @@ Welcome to the Chess Bot Project! This project aims to develop a competitive che
 ## Roadmap
 
 ### **Phase 1: Basic Chess Bot**
-1. **Set Up Environment**:
-   - Learn chess rules and UCI/FEN notations.
-   - Install `python-chess` or `Chessnut` library.
-2. **Basic Move Prioritization**:
-   - Prioritize checkmates, captures, and queen promotions.
-   - Add a fallback for random moves.
+- [ ] **Set Up Environment**:
+  - [ ] Learn chess rules and UCI/FEN notations.
+  - [ ] Install `python-chess` or `Chessnut` library.
+- [ ] **Basic Move Prioritization**:
+  - [ ] Prioritize checkmates, captures, and queen promotions.
+  - [ ] Add a fallback for random moves.
 
 #### Deliverables:
-- A bot that can play legal moves and prioritize simple strategies.
+- [ ] A bot that can play legal moves and prioritize simple strategies.
 
 ---
 
 ### **Phase 2: Intermediate Chess Bot**
-3. **Implement Heuristics**:
-   - Add scoring metrics for material, position, and king safety.
-4. **Use Minimax Algorithm**:
-   - Evaluate moves for both the bot and opponent.
-   - Implement Alpha-Beta pruning to optimize decision-making.
+- [ ] **Implement Heuristics**:
+  - [ ] Add scoring metrics for material, position, and king safety.
+- [ ] **Use Minimax Algorithm**:
+  - [ ] Evaluate moves for both the bot and opponent.
+  - [ ] Implement Alpha-Beta pruning to optimize decision-making.
 
 #### Deliverables:
-- A bot capable of planning moves 2-3 steps ahead with basic heuristics.
+- [ ] A bot capable of planning moves 2-3 steps ahead with basic heuristics.
 
 ---
 
 ### **Phase 3: Advanced Chess Bot**
-5. **Opening Knowledge**:
-   - Integrate a chess opening book.
-6. **Endgame Strategies**:
-   - Add knowledge of specific endgame principles.
-7. **Optimization**:
-   - Implement transposition tables for caching board evaluations.
-   - Use parallel processing for faster move evaluation.
+- [ ] **Opening Knowledge**:
+  - [ ] Integrate a chess opening book.
+- [ ] **Endgame Strategies**:
+  - [ ] Add knowledge of specific endgame principles.
+- [ ] **Optimization**:
+  - [ ] Implement transposition tables for caching board evaluations.
+  - [ ] Use parallel processing for faster move evaluation.
 
 #### Deliverables:
-- A bot that performs well in opening, midgame, and endgame.
+- [ ] A bot that performs well in opening, midgame, and endgame.
 
 ---
 
 ### **Phase 4: Competitive Chess Bot**
-8. **Integrate Machine Learning**:
-   - Train a reinforcement learning agent using Monte Carlo Tree Search (MCTS).
-   - Leverage pre-trained neural networks for board evaluation.
-9. **Fine-Tune Performance**:
-   - Use self-play to identify weaknesses and improve strategies.
-10. **Test Against Other Bots**:
-    - Benchmark the bot’s performance against Stockfish or other bots.
+- [ ] **Integrate Machine Learning**:
+  - [ ] Train a reinforcement learning agent using Monte Carlo Tree Search (MCTS).
+  - [ ] Leverage pre-trained neural networks for board evaluation.
+- [ ] **Fine-Tune Performance**:
+  - [ ] Use self-play to identify weaknesses and improve strategies.
+- [ ] **Test Against Other Bots**:
+  - [ ] Benchmark the bot’s performance against Stockfish or other bots.
 
 #### Deliverables:
-- A competitive bot ready for challenges or tournaments.
+- [ ] A competitive bot ready for challenges or tournaments.
 
 ---
 
 ### **Phase 5: Master Chess Bot**
-11. **Advanced Features**:
-    - Add time management strategies for blitz games.
-    - Implement multi-level difficulty.
-12. **Deployment**:
-    - Package the bot as an API or standalone application.
-    - Provide a user-friendly interface for human players.
+- [ ] **Advanced Features**:
+  - [ ] Add time management strategies for blitz games.
+  - [ ] Implement multi-level difficulty.
+- [ ] **Deployment**:
+  - [ ] Package the bot as an API or standalone application.
+  - [ ] Provide a user-friendly interface for human players.
 
 #### Deliverables:
-- A fully-featured chess bot ready for deployment or competition.
+- [ ] A fully-featured chess bot ready for deployment or competition.
 
 ---
 
@@ -121,3 +121,4 @@ This project is licensed under the MIT License.
 - [python-chess](https://python-chess.readthedocs.io/en/latest/)
 - [Stockfish](https://stockfishchess.org/)
 - Kaggle's FIDE & Google Efficient Chess AI Challenge
+  
