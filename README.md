@@ -5,6 +5,7 @@ Welcome to the Chess Bot Project! This project aims to develop a competitive che
 ---
 
 ## Features
+
 - **Legal Moves Generation**: Ensures all moves follow chess rules.
 - **Basic Prioritization**: Captures high-value pieces, prioritizes checkmates, and promotes pawns.
 - **Advanced Algorithms**: Implements Minimax with Alpha-Beta pruning for strategic planning.
@@ -16,6 +17,7 @@ Welcome to the Chess Bot Project! This project aims to develop a competitive che
 ## Roadmap
 
 ### **Phase 1: Basic Chess Bot**
+
 - [ ] **Set Up Environment**:
   - [ ] Learn chess rules and UCI/FEN notations.
   - [ ] Install `python-chess` or `Chessnut` library.
@@ -24,11 +26,13 @@ Welcome to the Chess Bot Project! This project aims to develop a competitive che
   - [ ] Add a fallback for random moves.
 
 #### Deliverables:
+
 - [ ] A bot that can play legal moves and prioritize simple strategies.
 
 ---
 
 ### **Phase 2: Intermediate Chess Bot**
+
 - [ ] **Implement Heuristics**:
   - [ ] Add scoring metrics for material, position, and king safety.
 - [ ] **Use Minimax Algorithm**:
@@ -36,11 +40,13 @@ Welcome to the Chess Bot Project! This project aims to develop a competitive che
   - [ ] Implement Alpha-Beta pruning to optimize decision-making.
 
 #### Deliverables:
+
 - [ ] A bot capable of planning moves 2-3 steps ahead with basic heuristics.
 
 ---
 
 ### **Phase 3: Advanced Chess Bot**
+
 - [ ] **Opening Knowledge**:
   - [ ] Integrate a chess opening book.
 - [ ] **Endgame Strategies**:
@@ -50,11 +56,13 @@ Welcome to the Chess Bot Project! This project aims to develop a competitive che
   - [ ] Use parallel processing for faster move evaluation.
 
 #### Deliverables:
+
 - [ ] A bot that performs well in opening, midgame, and endgame.
 
 ---
 
 ### **Phase 4: Competitive Chess Bot**
+
 - [ ] **Integrate Machine Learning**:
   - [ ] Train a reinforcement learning agent using Monte Carlo Tree Search (MCTS).
   - [ ] Leverage pre-trained neural networks for board evaluation.
@@ -64,11 +72,13 @@ Welcome to the Chess Bot Project! This project aims to develop a competitive che
   - [ ] Benchmark the bot’s performance against Stockfish or other bots.
 
 #### Deliverables:
+
 - [ ] A competitive bot ready for challenges or tournaments.
 
 ---
 
 ### **Phase 5: Master Chess Bot**
+
 - [ ] **Advanced Features**:
   - [ ] Add time management strategies for blitz games.
   - [ ] Implement multi-level difficulty.
@@ -77,11 +87,13 @@ Welcome to the Chess Bot Project! This project aims to develop a competitive che
   - [ ] Provide a user-friendly interface for human players.
 
 #### Deliverables:
+
 - [ ] A fully-featured chess bot ready for deployment or competition.
 
 ---
 
 ## Setup Instructions
+
 1. Clone this repository:
    ```bash
    git clone https://github.com/yourusername/chess-bot.git
@@ -99,6 +111,7 @@ Welcome to the Chess Bot Project! This project aims to develop a competitive che
 ---
 
 ## Contributing
+
 1. Fork the repository.
 2. Create a new branch:
    ```bash
@@ -113,12 +126,13 @@ Welcome to the Chess Bot Project! This project aims to develop a competitive che
 ---
 
 ## License
+
 This project is licensed under the MIT License.
 
 ---
 
 ## Acknowledgments
+
 - [python-chess](https://python-chess.readthedocs.io/en/latest/)
 - [Stockfish](https://stockfishchess.org/)
 - Kaggle's FIDE & Google Efficient Chess AI Challenge
-  
