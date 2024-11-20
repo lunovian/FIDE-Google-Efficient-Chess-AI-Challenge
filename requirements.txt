@@ -1,0 +1,6 @@
+requests
+kaggle-environments
+Chessnut
+pygame
+termcolor
+ipywidgets
