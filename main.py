@@ -4,55 +4,76 @@ import random
 # Define piece values for material evaluation
 PIECE_VALUES = {'p': 1, 'n': 3, 'b': 3, 'r': 5, 'q': 9, 'k': 0, ' ': 0}
 
-# Define central squares for positional evaluation
-CENTER_SQUARES = {'d4', 'd5', 'e4', 'e5'}
-
-def evaluate_capture(game, move):
+def minimax(game, depth, is_maximizing, alpha, beta):
     """
-    Evaluate the value of a capture move based on the piece being captured.
+    Minimax algorithm with Alpha-Beta pruning.
 
     Args:
         game: An instance of the Chessnut Game class.
-        move: A UCI string representing a move (e.g., "e2e4").
+        depth: The remaining depth to search.
+        is_maximizing: True if it's the maximizing player's turn, False otherwise.
+        alpha: The best value that the maximizing player can guarantee.
+        beta: The best value that the minimizing player can guarantee.
 
     Returns:
-        An integer score representing the value of the captured piece.
+        A tuple (best_score, best_move).
     """
-    target_square = Game.xy2i(move[2:4])  # Convert target square to board index
-    target_piece = game.board.get_piece(target_square).lower()  # Get the piece at the target square
-    return PIECE_VALUES.get(target_piece, 0)  # Return its value
+    # Base case: Return evaluation if at depth 0 or the game is over
+    if depth == 0 or game.status in (Game.CHECKMATE, Game.STALEMATE):
+        return evaluate_board(game), None
 
-def evaluate_position(move):
+    legal_moves = list(game.get_moves())
+    if is_maximizing:
+        best_score = -float('inf')
+        best_move = None
+        for move in legal_moves:
+            g = Game(game.get_fen())
+            g.apply_move(move)
+            score, _ = minimax(g, depth - 1, False, alpha, beta)
+            if score > best_score:
+                best_score = score
+                best_move = move
+            alpha = max(alpha, best_score)
+            if beta <= alpha:  # Prune the branch
+                break
+        return best_score, best_move
+    else:
+        best_score = float('inf')
+        best_move = None
+        for move in legal_moves:
+            g = Game(game.get_fen())
+            g.apply_move(move)
+            score, _ = minimax(g, depth - 1, True, alpha, beta)
+            if score < best_score:
+                best_score = score
+                best_move = move
+            beta = min(beta, best_score)
+            if beta <= alpha:  # Prune the branch
+                break
+        return best_score, best_move
+
+def evaluate_board(game):
     """
-    Evaluate a move based on positional control (center squares).
+    Evaluate the current board state.
 
     Args:
-        move: A UCI string representing a move (e.g., "e2e4").
+        game: An instance of the Chessnut Game class.
 
     Returns:
-        A score (higher values for moves toward the center).
+        A numerical score where positive values favor the maximizing player.
     """
-    target_square = move[2:4]
-    return 1 if target_square in CENTER_SQUARES else 0
-
-def evaluate_king_safety(game, move):
-    """
-    Evaluate king safety for a move.
-
-    Args:
-        game: The current game state.
-        move: A move in UCI format.
-
-    Returns:
-        A penalty score (negative value if unsafe).
-    """
-    g = Game(game.get_fen())  # Create a new instance of the board
-    g.apply_move(move)  # Apply the move
-    return -10 if g.status == Game.CHECK else 0  # Penalize moves that leave the king in check
+    fen = game.get_fen()
+    board = fen.split()[0]  # Get the board part of the FEN
+    score = 0
+    for char in board:
+        if char.isalpha():
+            piece_value = PIECE_VALUES.get(char.lower(), 0)
+            score += piece_value if char.isupper() else -piece_value  # Uppercase: maximizing, lowercase: minimizing
+    return score
 
 def chess_bot(obs):
     """
-    Improved chess bot prioritizing checkmates, high-value captures, positional play, and queen promotions.
+    Improved chess bot using Minimax with Alpha-Beta pruning.
 
     Args:
         obs: An object with a 'board' attribute representing the current board state as a FEN string.
@@ -62,31 +83,9 @@ def chess_bot(obs):
     """
     # Initialize game state
     game = Game(obs.board)
-    moves = list(game.get_moves())
 
-    # Evaluate moves
-    def score_move(move):
-        return (
-            evaluate_capture(game, move) +
-            evaluate_position(move) +
-            evaluate_king_safety(game, move)
-        )
+    # Use Minimax to find the best move
+    _, best_move = minimax(game, depth=3, is_maximizing=True, alpha=-float('inf'), beta=float('inf'))
 
-    # 1. Check for checkmate moves
-    for move in moves:
-        g = Game(obs.board)
-        g.apply_move(move)
-        if g.status == Game.CHECKMATE:
-            return move
-
-    # 2. Score all moves and choose the best one
-    scored_moves = [(move, score_move(move)) for move in moves]
-    best_move = max(scored_moves, key=lambda x: x[1])[0]
-
-    # 3. Prioritize queen promotions if possible
-    for move in moves:
-        if move[-1].lower() == 'q':
-            return move
-
-    # 4. Default to the best scored move or random fallback
-    return best_move if scored_moves else random.choice(moves)
+    # Return the best move found by Minimax
+    return best_move
