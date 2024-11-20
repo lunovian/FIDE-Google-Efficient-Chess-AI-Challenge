@@ -222,6 +222,27 @@ def parallel_minimax(game, depth, is_maximizing, alpha, beta, start_time, time_l
                 break
         return best_score, best_move
 
+def fallback_move(game):
+    """
+    Select a fallback move, prioritizing captures and promotions.
+    """
+    moves = list(game.get_moves())
+    if not moves:
+        return None  # No legal moves available
+
+    # Prioritize promotion moves
+    promotion_move = prioritize_promotion(moves)
+    if promotion_move:
+        return promotion_move
+
+    # Prioritize capture moves
+    capture_moves = [move for move in moves if evaluate_capture(game, move) > 0]
+    if capture_moves:
+        return max(capture_moves, key=lambda move: evaluate_capture(game, move))
+
+    # Otherwise, return a random legal move
+    return random.choice(moves)
+
 def iterative_deepening(game, max_depth, time_limit, start_time):
     """
     Perform iterative deepening to find the best move within a time limit.
